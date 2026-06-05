@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Universal Audio Overlay</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="flashBox"></div>
+  <div id="flashLabel"></div>
+  <div id="commandHelp" class="command-help hidden"></div>
+  <div id="sessionPanel" class="session-panel hidden"></div>
+  <div id="colorPanel" class="color-panel hidden">
+    <label for="glowColor">Glow</label>
+    <input id="glowColor" type="color" value="#7c3aed" title="Glow color">
+  </div>
+  <div id="drag"></div>
+  <div id="resizeZones" class="resize-zones" aria-hidden="true">
+    <span class="resize-zone resize-n" data-edge="n"></span>
+    <span class="resize-zone resize-e" data-edge="e"></span>
+    <span class="resize-zone resize-s" data-edge="s"></span>
+    <span class="resize-zone resize-w" data-edge="w"></span>
+    <span class="resize-zone resize-ne" data-edge="ne"></span>
+    <span class="resize-zone resize-se" data-edge="se"></span>
+    <span class="resize-zone resize-sw" data-edge="sw"></span>
+    <span class="resize-zone resize-nw" data-edge="nw"></span>
+  </div>
+  <main class="overlay">
+    <section class="playback-shell">
+      <section class="card playback-card" data-xray="CARD">
+        <div class="glow-wrap" data-xray="GLOW">
+          <div class="reactive-glow" id="reactiveGlow">
+            <span class="glow-band"></span>
+            <span class="glow-band"></span>
+            <span class="glow-band"></span>
+            <span class="glow-band"></span>
+            <span class="glow-band"></span>
+          </div>
+        </div>
+        <span class="art-wrap" data-xray="ART"><img id="art" class="art hidden-art" alt=""></span>
+        <div class="info" data-xray="INFO">
+          <div class="topline" data-xray="SOURCE">
+            <div id="src" class="src" data-xray="SRC">system</div>
+            <div id="statusDot" class="status-dot paused" data-xray="DOT"></div>
+          </div>
+          <div id="title" class="title" data-xray="TITLE">Universal Audio Overlay</div>
+          <div id="artist" class="artist" data-xray="ARTIST">System media</div>
+          <button id="volumeKnob" class="volume-knob" data-xray="VOLUME" title="Volume" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="volumeValue" class="volume-value">--</span>
+          </button>
+          <div id="playhead" class="bar" data-xray="TIMELINE" title="Drag or click to seek" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="prog"></div></div>
+          <div class="time" data-xray="TIME"><span id="elapsed" data-xray="ELAPSED">0:00</span><span id="duration" data-xray="DURATION">0:00</span></div>
+          <div class="playback-actions" data-xray="BUTTONS">
+            <button id="prevTrackMini" class="icon-btn monochrome track-btn" data-xray="PREV" title="Previous song" aria-label="Previous song">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="5" width="2" height="14"></rect>
+                <path d="M11 6 L5.8 12 L11 18 Z"></path>
+                <path d="M20 6 L12.5 12 L20 18 Z"></path>
+              </svg>
+            </button>
+            <button id="back10Mini" class="icon-btn monochrome seek-btn" data-xray="-10" title="Reverse 10 seconds" aria-label="Reverse 10 seconds">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M11 6 L4 12 L11 18 Z"></path>
+                <path d="M20 6 L13 12 L20 18 Z"></path>
+                <rect x="2" y="6" width="1.8" height="12"></rect>
+              </svg>
+              <span class="seek-label">10</span>
+            </button>
+            <button id="playMini" class="icon-btn monochrome" data-xray="PLAY" title="Play or Pause" aria-label="Play or Pause">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="5" y="5" width="4.5" height="14"></rect>
+                <rect x="14.5" y="5" width="4.5" height="14"></rect>
+              </svg>
+            </button>
+            <button id="fwd10Mini" class="icon-btn monochrome seek-btn" data-xray="+10" title="Skip 10 seconds" aria-label="Skip 10 seconds">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 6 L20 12 L13 18 Z"></path>
+                <path d="M4 6 L11 12 L4 18 Z"></path>
+                <rect x="20.2" y="6" width="1.8" height="12"></rect>
+              </svg>
+              <span class="seek-label">10</span>
+            </button>
+            <button id="nextTrackMini" class="icon-btn monochrome track-btn" data-xray="NEXT" title="Next song" aria-label="Next song">
+              <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6 L11.5 12 L4 18 Z"></path>
+                <path d="M13 6 L18.2 12 L13 18 Z"></path>
+                <rect x="18" y="5" width="2" height="14"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>

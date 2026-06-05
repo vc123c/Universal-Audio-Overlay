@@ -1,0 +1,26 @@
+{
+  "name": "universal-audio-overlay",
+  "version": "1.0.0",
+  "description": "Always-on-top Windows media overlay with reactive album art, playback controls, and source selection.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check renderer.js"
+  },
+  "keywords": [
+    "electron",
+    "windows",
+    "media",
+    "overlay",
+    "audio",
+    "desktop-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0"
+  },
+  "dependencies": {
+    "uiohook-napi": "^1.5.4"
+  }
+}
