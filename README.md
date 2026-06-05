@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/logo.svg" alt="Universal Audio Overlay CD logo" width="128">
-</p>
-
 # Universal Audio Overlay
 
 Universal Audio Overlay is a Windows desktop media overlay built with Electron. It stays on top of games and desktop apps, shows the active system media session, and gives fast playback, seek, volume, source-selection, and visual controls without switching windows.
